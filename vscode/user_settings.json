@@ -1,7 +1,7 @@
 {
     // General settings
     "security.workspace.trust.untrustedFiles": "newWindow",
-    {% comment %} "window.zoomLevel": 01, {% endcomment %}
+    // "window.zoomLevel": 1,
     "window.commandCenter": false,
     "files.exclude": {
         ".git": true,

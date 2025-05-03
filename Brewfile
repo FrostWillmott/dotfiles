@@ -1,5 +1,4 @@
 tap "hashicorp/tap"
-tap "homebrew/services"
 brew "git"
 brew "pyenv"
 cask "iterm2"
