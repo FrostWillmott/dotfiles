@@ -54,7 +54,11 @@ echo "  ↪ Linked VS Code snippets/"
 
 # 4) Homebrew package management
 if command -v brew &>/dev/null; then
-  echo "🍺 Installing Homebrew packages"
+  echo "🆙 Updating Homebrew"
+  brew update
+  echo "🆙 Upgrading all installed formulae"
+  brew upgrade
+  echo "🍺 Installing Homebrew packages (via Brewfile)"
   brew bundle --file="$DOTFILES_DIR/Brewfile"
   echo "🧹 Removing unused Homebrew dependencies"
   brew autoremove
