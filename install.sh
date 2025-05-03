@@ -44,7 +44,18 @@ else
   echo "⚠️  Homebrew not found – please install it first"
 fi
 
-# VS Code extensions (if you maintain vscode_extensions.txt)
+# VS Code settings
+VSCODE_SETTINGS_SRC="$DOTFILES_DIR/user_settings.json"
+VSCODE_SETTINGS_DEST="$HOME/Library/Application Support/Code/User/settings.json"
+
+echo "🔧 Linking VS Code settings"
+mkdir -p "$(dirname "$VSCODE_SETTINGS_DEST")"
+if [ -e "$VSCODE_SETTINGS_DEST" ] && [ ! -L "$VSCODE_SETTINGS_DEST" ]; then
+  mv "$VSCODE_SETTINGS_DEST" "$BACKUP_DIR/settings.json.backup"
+fi
+ln -sf "$VSCODE_SETTINGS_SRC" "$VSCODE_SETTINGS_DEST"
+
+# VS Code extensions (if present)
 EXT_FILE="$DOTFILES_DIR/vscode_extensions.txt"
 if command -v code &>/dev/null && [ -f "$EXT_FILE" ]; then
   echo "📦 Installing VS Code extensions"

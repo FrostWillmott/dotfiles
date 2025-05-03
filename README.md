@@ -18,3 +18,11 @@ This repository contains my personal configuration files to set up a consistent 
    ```bash
    git clone https://github.com/FrostWillmott/dotfiles.git ~/dotfiles
    cd ~/dotfiles
+
+## 🔄 Keeping Up to Date
+
+Whenever you change or add dotfiles, extensions, or brew packages, run:
+
+```bash
+cd ~/dotfiles
+./update.sh
