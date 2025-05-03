@@ -113,10 +113,11 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="/opt/anaconda3/bin:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$PATH:/opt/anaconda3/bin"
 eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # Function to update the prompt when a virtual environment is active
 function precmd() {
@@ -124,4 +125,25 @@ function precmd() {
     venv_name=$(basename "$VIRTUAL_ENV")
     PROMPT="($venv_name) $PROMPT"
   fi
+}
+# SSL certificate configuration for pyenv and Python
+export SSL_CERT_FILE="$(brew --prefix ca-certificates)/share/ca-certificates/cacert.pem"
+export CURL_CA_BUNDLE="$SSL_CERT_FILE"
+export REQUESTS_CA_BUNDLE="$SSL_CERT_FILE"
+
+[[ -r $SSL_CERT_FILE ]] || \
+  print -u2 "%F{red}Warning:%f SSL_CERT_FILE not readable: $SSL_CERT_FILE"
+
+
+# For pyenv installations, use Homebrew's OpenSSL
+export PYTHON_BUILD_HOMEBREW_OPENSSL_FORMULA="openssl@3"
+alias pyenv-install='CFLAGS="-I$(brew --prefix openssl@3)/include" \
+                     LDFLAGS="-L$(brew --prefix openssl@3)/lib" \
+                     pyenv install'
+
+function pyenv-ssl-install() {
+  CFLAGS="-I$(brew --prefix openssl@3)/include" \
+  LDFLAGS="-L$(brew --prefix openssl@3)/lib" \
+  PYTHON_BUILD_HOMEBREW_OPENSSL_FORMULA="openssl@3" \
+  pyenv install "$@"
 }
