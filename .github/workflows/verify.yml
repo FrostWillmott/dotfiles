@@ -29,6 +29,8 @@ jobs:
 
       # 5. Dry‐run your installer
       - name: Dry‐run install.sh
+        env:
+          DOTFILES_DIR: ${{ github.workspace }}
         run: bash install.sh
 
       # 6. Dry‐run your updater
