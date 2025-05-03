@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DOTFILES_DIR="${DOTFILES_DIR:-"$HOME/dotfiles"}"
-cd "$DOTFILES_DIR"
+cd "${DOTFILES_DIR:-"$HOME/dotfiles"}"
 
-echo "🔄 Pulling latest changes"
+echo "🔄 git pull"
 git pull origin main
 
-echo "🔗 Re-running install.sh"
+echo "🔗 re-running install.sh"
 ./install.sh
-
-echo "🗑️  Pruning Homebrew packages not in Brewfile"
-brew bundle cleanup --global --force
 
 echo "✅ update.sh complete!"

@@ -1,0 +1,27 @@
+name: Verify dotfiles
+
+on:
+  push:
+    paths:
+      - '**'
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Homebrew update
+        run: brew update
+
+      - name: Brewfile check
+        run: brew bundle check --file=Brewfile
+
+      - name: Dry-run install.sh
+        run: bash install.sh
+
+      - name: Dry-run update.sh
+        run: bash update.sh

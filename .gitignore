@@ -3,3 +3,4 @@
 .env
 dotfiles_backup_*
 .DS_Store
+.vscode/
