@@ -1,0 +1,12 @@
+ms-python.python
+charliermarsh.ruff
+LittleFoxTeam.vscode-python-test-adapter
+njpwerner.autodocstring
+Tyriar.sort-lines
+eamodio.gitlens
+batisteo.vscode-django
+LikhithD.fastapi-snippets-extension
+onegang2.fastapi-endpoint
+ms-azuretools.vscode-docker
+ms-vscode-remote.remote-containers
+GitHub.vscode-github-actions
