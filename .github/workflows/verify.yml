@@ -11,17 +11,26 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      # 1. Check out your repo
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Homebrew update
+      # 2. Prep Homebrew
+      - name: Update Homebrew
         run: brew update
 
-      - name: Brewfile check
+      # 3. Install everything in your Brewfile
+      - name: Brewfile install
+        run: brew bundle install --file=Brewfile
+
+      # 4. Now verify (should pass)
+      - name: Brewfile consistency check
         run: brew bundle check --file=Brewfile
 
-      - name: Dry-run install.sh
+      # 5. Dry‐run your installer
+      - name: Dry‐run install.sh
         run: bash install.sh
 
-      - name: Dry-run update.sh
+      # 6. Dry‐run your updater
+      - name: Dry‐run update.sh
         run: bash update.sh
