@@ -1,12 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "${DOTFILES_DIR:-"$HOME/dotfiles"}"
+# Determine the dotfiles directory:
+if [ -n "${DOTFILES_DIR:-}" ]; then
+  repo_dir="$DOTFILES_DIR"
+else
+  # Resolve the script's parent directory
+  repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+fi
 
-echo "🔄 git pull"
+echo "🔄 Updating dotfiles in $repo_dir"
+cd "$repo_dir"
+
+# Pull latest changes
 git pull origin main
 
-echo "🔗 re-running install.sh"
+# Re-run install script
+echo "🔗 Re-running install.sh"
 ./install.sh
 
 echo "✅ update.sh complete!"

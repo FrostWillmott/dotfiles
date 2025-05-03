@@ -59,4 +59,17 @@ if command -v code &>/dev/null && [ -f "$VSCODE_SRC/vscode_extensions.txt" ]; th
   done <"$VSCODE_SRC/vscode_extensions.txt"
 fi
 
+# 6) Python versions via pyenv
+VERSIONS_FILE="$DOTFILES_DIR/python_versions.txt"
+if command -v pyenv &>/dev/null && [ -f "$VERSIONS_FILE" ]; then
+  echo "🐍 Installing Python versions from $VERSIONS_FILE"
+  while IFS= read -r ver; do
+    pyenv install -s "$ver"
+  done < "$VERSIONS_FILE"
+
+  GLOBAL=$(head -n1 "$VERSIONS_FILE")
+  echo "🌐 Setting global Python to $GLOBAL"
+  pyenv global "$GLOBAL"
+fi
+
 echo "✅ install.sh complete!"
