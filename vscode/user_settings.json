@@ -28,8 +28,6 @@
     "explorer.autoReveal": true,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    // Workbench settings
-    "workbench.colorTheme": "Default Dark+",
     "workbench.editor.enablePreview": false,
     "workbench.editor.tabSizing": "shrink",
     "workbench.settings.editor": "json",
@@ -58,5 +56,7 @@
     "terminal.integrated.tabs.location": "right",
     // Markdown settings
     "markdown.preview.scrollEditorWithPreview": true,
-    "markdown.preview.scrollPreviewWithEditor": true
+    "markdown.preview.scrollPreviewWithEditor": true,
+    "database-client.autoSync": true,
+    "makefile.configureOnOpen": true
 }
