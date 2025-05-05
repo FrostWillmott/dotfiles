@@ -53,8 +53,6 @@
     "ruff.nativeServer": "on",
     // 2. Prefer workspace config files (ruff.toml / pyproject.toml)
     "ruff.configurationPreference": "filesystemFirst",
-    // 3. (Optional) If you want to be explicit about which file:
-    "ruff.configuration": "${workspaceFolder}/ruff.toml",
     // Debug settings
     "debug.toolBarLocation": "docked",
     // Terminal settings
@@ -65,5 +63,8 @@
     "markdown.preview.scrollEditorWithPreview": true,
     "markdown.preview.scrollPreviewWithEditor": true,
     "database-client.autoSync": true,
-    "makefile.configureOnOpen": true
+    "makefile.configureOnOpen": true,
+    "vs-kubernetes": {
+        "vscode-kubernetes.helm-path-mac": "/Users/ivan_tkachenko/.vs-kubernetes/tools/helm/darwin-arm64/helm"
+    }
 }
