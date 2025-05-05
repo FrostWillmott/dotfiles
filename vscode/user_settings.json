@@ -39,6 +39,7 @@
     "editor.formatOnSaveMode": "file",
     "editor.codeActionsOnSave": {
         "source.organizeImports": "always",
+        "source.fixAll.ruff": "always",
         "source.fixAll": "always"
     },
     "files.autoSave": "onFocusChange",
@@ -48,6 +49,12 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    // 1. Always use the native Rust-based server:
+    "ruff.nativeServer": "on",
+    // 2. Prefer workspace config files (ruff.toml / pyproject.toml)
+    "ruff.configurationPreference": "filesystemFirst",
+    // 3. (Optional) If you want to be explicit about which file:
+    "ruff.configuration": "${workspaceFolder}/ruff.toml",
     // Debug settings
     "debug.toolBarLocation": "docked",
     // Terminal settings
