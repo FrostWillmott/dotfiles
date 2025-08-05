@@ -147,3 +147,16 @@ function pyenv-ssl-install() {
   PYTHON_BUILD_HOMEBREW_OPENSSL_FORMULA="openssl@3" \
   pyenv install "$@"
 }
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/ivan_tkachenko/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/ivan_tkachenko/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

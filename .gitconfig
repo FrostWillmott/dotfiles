@@ -1,6 +1,6 @@
 [user]
 	name = FrostWillmott
-	email = 121764288+FrostWillmott@users.noreply.github.com
+	email = i.tkachenko@zohomail.eu
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

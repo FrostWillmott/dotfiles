@@ -51,6 +51,9 @@
     },
     // 1. Always use the native Rust-based server:
     "ruff.nativeServer": "on",
+    "python.languageServer": "Pylance",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.indexing": true,
     // 2. Prefer workspace config files (ruff.toml / pyproject.toml)
     "ruff.configurationPreference": "filesystemFirst",
     // Debug settings
@@ -66,5 +69,39 @@
     "makefile.configureOnOpen": true,
     "vs-kubernetes": {
         "vscode-kubernetes.helm-path-mac": "/Users/ivan_tkachenko/.vs-kubernetes/tools/helm/darwin-arm64/helm"
-    }
+    },
+    "snyk.advanced.cliPath": "/Users/ivan_tkachenko/Library/Application Support/snyk/vscode-cli/snyk-macos-arm64",
+    "snyk.yesWelcomeNotification": false,
+    "snyk.trustedFolders": [
+        "/Users/ivan_tkachenko/Projects/learning/kittygram_final",
+        "/Users/ivan_tkachenko/Projects/learning/Archive/Yandex Practicum/kittygram2plus",
+        "/Users/ivan_tkachenko/Projects/personal/foodgram",
+        "/Users/ivan_tkachenko/Projects/templates/FrostWillmott",
+        "/Users/ivan_tkachenko/dotfiles"
+    ],
+    "snyk.folderConfigs": [
+        {
+            "folderPath": "/Users/ivan_tkachenko/dotfiles",
+            "baseBranch": "main",
+            "localBranches": [
+                "main"
+            ]
+        }
+    ],
+    "sqltools.useNodeRuntime": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.rulers": [
+        88
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        ".",
+        "-v"
+    ],
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.suggestSelection": "first",
+    "editor.acceptSuggestionOnCommitCharacter": false
 }
