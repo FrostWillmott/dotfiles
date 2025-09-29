@@ -1,4 +1,7 @@
 # 🛠 Ivan Tkachenko’s Dotfiles
+![CI](https://github.com/FrostWillmott/dotfiles/workflows/Verify%20dotfiles/badge.svg)
+![macOS](https://img.shields.io/badge/macOS-ready-blue)
+![License](https://img.shields.io/github/license/FrostWillmott/dotfiles)
 
 Bootstrap your macOS development environment with a single installer script. This repository manages:
 
