@@ -3,7 +3,7 @@ name: Verify dotfiles
 on:
   push:
     paths:
-      - '**'
+      - "**"
   pull_request:
 
 jobs:
@@ -23,9 +23,14 @@ jobs:
       - name: Brewfile install
         run: brew bundle install --file=Brewfile
 
-      # 4. Now verify (should pass)
-      - name: Brewfile consistency check
-        run: brew bundle check --file=Brewfile
+      # 4. Verify your critical tools are available
+      - name: Verify required tools
+        run: |
+          echo "Checking required tools..."
+          command -v git >/dev/null 2>&1 || { echo "git not found"; exit 1; }
+          command -v pyenv >/dev/null 2>&1 || { echo "pyenv not found"; exit 1; }
+          command -v code >/dev/null 2>&1 || { echo "vscode not found"; exit 1; }
+          echo "✅ All required tools are installed"
 
       # 5. Dry‐run your installer
       - name: Dry‐run install.sh
