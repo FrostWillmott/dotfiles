@@ -2,7 +2,6 @@
 ![CI](https://github.com/FrostWillmott/dotfiles/workflows/Verify%20dotfiles/badge.svg)
 ![macOS](https://img.shields.io/badge/macOS-ready-blue)
 ![License](https://img.shields.io/github/license/FrostWillmott/dotfiles)
-[![If Forking](https://img.shields.io/badge/If%20Forking-Read%20Instructions-orange)](#%EF%B8%8F-before-using-if-forking)
 
 Bootstrap your macOS development environment with a single installer script. This repository manages:
 
@@ -64,7 +63,7 @@ chmod +x install.sh
 
 ---
 
-## ⚠️ Before Using
+## ⚠️ Before Using (If Forking)
 
 If you're forking this repo for your own use, update these files:
 - `.gitconfig` — change name and email to yours
