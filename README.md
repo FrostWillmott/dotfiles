@@ -60,6 +60,16 @@ chmod +x install.sh
 
 ---
 
+## ⚠️ Before Using
+
+If you're forking this repo for your own use, update these files:
+- `.gitconfig` — change name and email to yours
+- `.zprofile` / `.zshrc` — remove paths specific to my setup (`/Users/ivan_tkachenko`)
+- `Brewfile` — review packages and remove what you don't need
+- `vscode/user_settings.json` — adjust paths and settings to your preferences
+
+---
+
 ## 🔄 Keeping Up-to-Date
 
 When you change any dotfiles, add new brew packages, or update VS Code config, simply:
