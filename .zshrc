@@ -116,7 +116,6 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$PATH:/opt/anaconda3/bin"
-eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 # Function to update the prompt when a virtual environment is active
@@ -148,7 +147,7 @@ function pyenv-ssl-install() {
   pyenv install "$@"
 }
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/ivan_tkachenko/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
 
@@ -156,7 +155,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/ivan_tkachenko/.docker/completions $fpath)
+fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# Added by Antigravity
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
