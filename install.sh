@@ -69,7 +69,7 @@ else
 fi
 
 # 5) VS Code extensions installation
-ext_file="$DOTFILES_DIR/vscode/vscode_extensions.txt"
+ext_file="$DOTFILES_DIR/vscode/vscode-extensions.txt"
 if command -v code &>/dev/null && [ -f "$ext_file" ]; then
   echo "📦 Installing VS Code extensions"
   while IFS= read -r ext; do

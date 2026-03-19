@@ -1,4 +1,7 @@
-# 🛠 Ivan Tkachenko’s Dotfiles
+# Ivan Tkachenko's Dotfiles
+
+Personal macOS development environment—built for quick setup on new machines and for others who want a sensible Python/VS Code/Homebrew baseline without the boilerplate.
+
 ![CI](https://github.com/FrostWillmott/dotfiles/workflows/Verify%20dotfiles/badge.svg)
 ![macOS](https://img.shields.io/badge/macOS-ready-blue)
 ![License](https://img.shields.io/github/license/FrostWillmott/dotfiles)
@@ -8,8 +11,9 @@ Bootstrap your macOS development environment with a single installer script. Thi
 - **Shell:** `.zshrc`, `.zprofile`
 - **Git:** `.gitconfig`
 - **Packages:** `Brewfile`
-- **Custom scripts:** `bin/`
-- **VS Code:** user settings, keybindings, snippets, and extensions
+- **VS Code:** user settings, snippets, and extensions
+- **iTerm2:** preferences
+- **Python:** versions via `python_versions.txt` (pyenv)
 
 ## Repo Structure
 
@@ -20,95 +24,85 @@ dotfiles/
 ├── .zprofile
 ├── .zshrc
 ├── Brewfile
-├── bin/
-│   └── custom_script.sh
 ├── install.sh
 ├── update.sh
+├── python_versions.txt
 ├── .github/
 │   └── workflows/verify.yml
+├── iterm2/
+│   └── com.googlecode.iterm2.plist
+├── pycharm/
+│   └── settings.zip
 └── vscode/
     ├── user_settings.json     # VS Code settings.json
-    ├── keybindings.json       # VS Code keybindings.json
     ├── snippets/              # VS Code snippet files
-    └── vscode_extensions.txt  # List of extension IDs, one per line
+    └── vscode-extensions.txt  # List of extension IDs, one per line
 ```
 
 ---
 
-## 🚀 First-Time Setup
+## First-Time Setup
 
 On a fresh macOS machine, run:
 
 ```bash
-# Clone your dotfiles repository
-git clone https://github.com/yourusername/dotfiles.git "$HOME/dotfiles"
+git clone git@github.com:FrostWillmott/dotfiles.git "$HOME/dotfiles"
 cd "$HOME/dotfiles"
 
-# Make the installer executable
 chmod +x install.sh
-
-# Run the installer
 ./install.sh
 ```
 
 **Under the hood**, `install.sh` will:
 
-1. Determine the repo location and back up any existing dotfiles.
-2. **Update Homebrew** and **upgrade** any installed formulae (`brew update && brew upgrade`).
-3. **Install** all packages declared in your `Brewfile`.
-4. **Autoremove** and **clean up** unused Homebrew dependencies.
-5. **Symlink** your shell (`.zshrc`, `.zprofile`) and Git (`.gitconfig`) files into your home directory.
-6. **Symlink** VS Code user files (`settings.json`, `keybindings.json`, `snippets/`).
-7. **Install** all VS Code extensions listed in `vscode/vscode_extensions.txt`.
+1. Back up any existing dotfiles and symlink shell (`.zshrc`, `.zprofile`) and Git (`.gitconfig`) into your home directory.
+2. Symlink VS Code user files (`settings.json`, `snippets/`) into `~/Library/Application Support/Code/User/`.
+3. Update Homebrew, install packages from `Brewfile`, autoremove and cleanup.
+4. Install VS Code extensions listed in `vscode/vscode-extensions.txt`.
+5. Install Python versions from `python_versions.txt` via pyenv (if pyenv is available).
 
 ---
 
-## ⚠️ Before Using (If Forking)
+## Customize
 
-If you're forking this repo for your own use, update these files:
-- `.gitconfig` — change name and email to yours
-- `.zprofile` / `.zshrc` — remove paths specific to my setup (`/Users/ivan_tkachenko`)
-- `Brewfile` — review packages and remove what you don't need
-- `vscode/user_settings.json` — adjust paths and settings to your preferences
+Before or after install, adjust:
+
+- `.gitconfig` — set your name and email
+- `Brewfile` — add or remove packages
+- `vscode/user_settings.json` — tweak editor settings
+- `python_versions.txt` — change which Python versions to install
 
 ---
 
-## 🔄 Keeping Up-to-Date
+## Keeping Up-to-Date
 
-When you change any dotfiles, add new brew packages, or update VS Code config, simply:
+When you change dotfiles, add brew packages, or update VS Code config:
 
 ```bash
 cd "$HOME/dotfiles"
-chmod +x update.sh
 ./update.sh
 ```
 
-This will:
-
-1. **Update Homebrew** and **upgrade** installed formulae.
-2. **Pull** the latest commits from GitHub.
-3. **Re-run** `install.sh` to apply any new dotfiles, packages, or extensions.
+This updates Homebrew, pulls the latest from GitHub, and re-runs `install.sh`.
 
 ---
 
-## ⚙️ VS Code Configuration
+## VS Code Configuration
 
-All VS Code user files live under the `vscode/` directory and are symlinked into:
+VS Code files under `vscode/` are symlinked into:
 
 ```
 ~/Library/Application Support/Code/User/
-├── settings.json      ← vscode/user_settings.json
-├── keybindings.json   ← vscode/keybindings.json
-└── snippets/          ← vscode/snippets/
+├── settings.json   ← vscode/user_settings.json
+└── snippets/       ← vscode/snippets/
 ```
 
 - **Settings**: `vscode/user_settings.json`
-- **Keybindings**: `vscode/keybindings.json`
 - **Snippets**: files in `vscode/snippets/`
-- **Extensions**: listed, one per line, in `vscode/vscode_extensions.txt`
+- **Extensions**: listed in `vscode/vscode-extensions.txt` (one ID per line)
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+MIT License. See [LICENSE](LICENSE) for details.
